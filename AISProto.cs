@@ -1660,12 +1660,9 @@ namespace dkxce.AIS
             abm.DestMMSI = 46543;
             abm.Message = "Duke Nukem Must Die!";
 
-            byte[] aiu = abm.ToAisUnpacked();
-            byte[] aie = abm.ToAisEnpacked();
-
-            string ais = abm.ToAisSentense();
-            string pck = abm.ToAisFullPacket();
-            byte[] pcb = abm.ToAisFullDataMsg();
+            string ais = abm.ToAisSentense(); // SENTENSE ONLY
+            string pck = abm.ToAisFullPacket(); // FULL WITH CRC
+            
             dkxce.AIS.AddressedSafetyMessage12 abx = dkxce.AIS.AddressedSafetyMessage12.FromAIS((ais));
         }
     }
