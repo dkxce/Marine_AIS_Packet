@@ -1650,4 +1650,23 @@ namespace dkxce.AIS
             return (uint)(hash & 0xFFFFFF);
         }
     }
+
+    public static class TEST
+    {
+        public static void TEST_001()
+        {
+            dkxce.AIS.AddressedSafetyMessage12 abm = new dkxce.AIS.AddressedSafetyMessage12();
+            abm.MMSI = 12232;
+            abm.DestMMSI = 46543;
+            abm.Message = "Duke Nukem Must Die!";
+
+            byte[] aiu = abm.ToAisUnpacked();
+            byte[] aie = abm.ToAisEnpacked();
+
+            string ais = abm.ToAisSentense();
+            string pck = abm.ToAisFullPacket();
+            byte[] pcb = abm.ToAisFullDataMsg();
+            dkxce.AIS.AddressedSafetyMessage12 abx = dkxce.AIS.AddressedSafetyMessage12.FromAIS((ais));
+        }
+    }
 }
